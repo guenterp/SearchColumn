@@ -1,0 +1,29 @@
+
+Loglevel INFO:
+==============
+2016-02-15 17:19:34,572     [      doIt:   24]    INFO  -  application started successfully
+2016-02-15 17:19:35,684     [      doIt:   96]    INFO  -  match: table = MY_TABLE, column = DESCRIPTION, column value = freedom's just another word for ...
+2016-02-15 17:19:35,698     [      doIt:   34]    INFO  -  application terminated successfully
+
+
+Loglevel DEBUG:
+===============
+2016-02-15 17:17:22,969     [      doIt:   24]    INFO  -  application started successfully
+2016-02-15 17:17:22,978     [      doIt:   25]   DEBUG  -  search text: freedom
+2016-02-15 17:17:23,024     [initialize:   71]   DEBUG  -  db = ORACLE
+2016-02-15 17:17:23,025     [initialize:   76]   DEBUG  -  sSystem = DEV
+2016-02-15 17:17:23,033     [initialize:  101]   DEBUG  -  columnsql = 
+            SELECT table_name, column_name FROM all_tab_cols WHERE table_name = 'MY_TABLE' AND data_type NOT IN ('BLOB', 'CLOB', 'LONG')
+						...
+						...
+2016-02-15 17:17:23,964     [openDatabase:   61]   DEBUG  -  log in to database successful
+2016-02-15 17:17:23,965     [      doIt:   81]   DEBUG  -  search for columns containing text freedom
+2016-02-15 17:17:23,967     [      doIt:   83]   DEBUG  -  execute SQL statement 
+            SELECT table_name, column_name FROM all_tab_cols WHERE table_name = 'MY_TABLE' AND data_type NOT IN ('BLOB', 'CLOB', 'LONG')
+            
+2016-02-15 17:17:24,178     [      doIt:   92]   DEBUG  -  executing sql statement SELECT DESCRIPTION FROM MY_TABLE WHERE DESCRIPTION like '%freedom%'
+2016-02-15 17:17:24,181     [      doIt:   96]    INFO  -  match: table = MY_TABLE, column = DESCRIPTION, column value = freedom's just another word for ...
+2016-02-15 17:17:24,183     [      doIt:   92]   DEBUG  -  executing sql statement SELECT MY_DATE FROM MY_TABLE WHERE MY_DATE like '%freedom%'
+2016-02-15 17:17:24,187     [      doIt:   92]   DEBUG  -  executing sql statement SELECT MY_KEY FROM MY_TABLE WHERE MY_KEY like '%freedom%'
+2016-02-15 17:17:24,197     [      doIt:   34]    INFO  -  application terminated successfully
+

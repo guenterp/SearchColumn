@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <global>
+           <!--
+            <db>ORACLE</db>
+            <system>ORACLEDEV</system>
+            -->
+            <db>MSSQL</db>
+            <system>MSSQLDEV</system>  
+            <windowsauthentication>false</windowsauthentication> 
+            <!-- MYSQL not yet implemented -->      
+            <!--
+            <db>MYSQL</db>
+            <system>MYSQLDEV</system>
+            -->
+    </global>
+    <db name="ORACLE">
+        <columnsql>
+            SELECT table_name, column_name FROM all_tab_cols WHERE table_name = 'MY_TABLE' AND data_type NOT IN ('BLOB', 'CLOB', 'LONG')
+            <!-- replace 'MY_TABLE' by any table or by 1=1 if you want to search all tables ; -->
+        </columnsql>
+    </db>
+    <db name="MSSQL">
+        <columnsql>
+            SELECT t.name AS table_name, c.name AS column_name FROM sys.tables t INNER JOIN sys.columns c ON c.object_id = t.object_id WHERE 1=1 AND t.name='FonCodes'
+        </columnsql>
+    </db>
+    <system name="ORACLEDEV">
+        <database></database>
+        <dbservertype>thin</dbservertype>
+        <dbservername></dbservername>
+        <dbportNumber>1526</dbportNumber>
+        <dbuser></dbuser>
+        <dbpassword></dbpassword>
+        <dbdriver>oracle.jdbc.driver.OracleDriver</dbdriver>
+    </system>
+    <!--
+    <system name="MSSQLDEV">
+        <database></database>
+        <dbservertype>thin</dbservertype>
+        <dbservername></dbservername>
+        <dbportNumber>1433</dbportNumber>
+        <dbuser></dbuser>
+        <dbpassword></dbpassword>
+        <dbdriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</dbdriver>
+    </system>
+    -->
+    <system name="MSSQLDEV">
+        <database></database>
+        <dbservertype>thin</dbservertype>
+        <dbservername></dbservername>
+        <dbportNumber>1433</dbportNumber>
+        <!--
+        <dbuser></dbuser>
+        <dbpassword></dbpassword>
+        -->
+        <dbdriver>com.microsoft.sqlserver.jdbc.SQLServerDriver</dbdriver>
+    </system>
+    <system name="TEST">
+    </system>
+    <system name="HOTFIX">
+    </system>
+    <system name="PRODUCTION">
+    </system>
+</Config>
